@@ -12,8 +12,8 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 100%);
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1d3a 25%, #0f1a3d 50%, #2d1b4e 100%);
             min-height: 100vh;
             padding: 20px;
             position: relative;
@@ -28,9 +28,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(72, 219, 251, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255, 159, 243, 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(138, 43, 226, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 150, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 0, 150, 0.06) 0%, transparent 50%);
             pointer-events: none;
             z-index: 0;
         }
@@ -42,7 +42,6 @@
             margin: 0 auto;
         }
 
-
         header {
             text-align: center;
             color: white;
@@ -52,19 +51,29 @@
         h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.85;
+            font-weight: 300;
         }
 
         .stats {
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 20px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 25px;
             margin-bottom: 30px;
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 25px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
         }
 
         .stat-item {
@@ -73,96 +82,146 @@
         }
 
         .stat-value {
-            font-size: 2em;
-            font-weight: bold;
+            font-size: 2.2em;
+            font-weight: 700;
             display: block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .stat-label {
             font-size: 0.9em;
-            opacity: 0.9;
+            opacity: 0.85;
+            font-weight: 300;
+            margin-top: 5px;
         }
 
         .mountain-container {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
+            background: linear-gradient(to bottom, #1a1d35, #0f1424);
+            border-radius: 25px;
+            padding: 50px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
             position: relative;
             overflow: hidden;
         }
 
+        .mountain-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 120%, rgba(102, 126, 234, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
         .mountain-svg {
             width: 100%;
-            height: 400px;
+            height: 450px;
+            position: relative;
+            z-index: 1;
         }
 
         .climber {
-            transition: all 1s ease-in-out;
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .roadmap-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 25px;
         }
 
         .category {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.4);
         }
 
         .category-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .category-title {
-            font-size: 1.3em;
-            color: #333;
-            font-weight: bold;
+            font-size: 1.4em;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
 
         .category-progress {
-            font-size: 0.9em;
+            font-size: 0.95em;
             color: #667eea;
-            font-weight: bold;
+            font-weight: 600;
+        }
+
+        .category-info {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.5;
+        }
+
+        .category-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.85em;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .category-link:hover {
+            color: #8a9aff;
         }
 
         .task {
-            margin-bottom: 12px;
-            padding: 12px;
-            background: #f8f9fa;
-            border-radius: 8px;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
             display: flex;
             align-items: flex-start;
-            gap: 12px;
+            gap: 15px;
             transition: all 0.3s ease;
         }
 
         .task:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.1);
             transform: translateX(5px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .task.completed {
-            background: #d4edda;
-            opacity: 0.8;
+            background: rgba(76, 175, 80, 0.1);
+            border-color: rgba(76, 175, 80, 0.3);
         }
 
         .task input[type="checkbox"] {
-            margin-top: 3px;
-            width: 20px;
-            height: 20px;
+            margin-top: 4px;
+            width: 22px;
+            height: 22px;
             cursor: pointer;
             flex-shrink: 0;
+            accent-color: #667eea;
         }
 
         .task-content {
@@ -171,63 +230,84 @@
 
         .task-name {
             font-weight: 500;
-            color: #333;
-            margin-bottom: 4px;
+            color: white;
+            margin-bottom: 6px;
+            line-height: 1.4;
         }
 
         .task.completed .task-name {
             text-decoration: line-through;
-            color: #666;
+            opacity: 0.6;
         }
 
         .task-deadline {
             font-size: 0.85em;
-            color: #666;
+            color: rgba(255,255,255,0.5);
+            margin-top: 4px;
         }
 
         .task.overdue .task-deadline {
-            color: #dc3545;
-            font-weight: bold;
+            color: #ff6b6b;
+            font-weight: 600;
+        }
+
+        .task-link {
+            display: inline-block;
+            margin-top: 6px;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.8em;
+            transition: color 0.3s ease;
+        }
+
+        .task-link:hover {
+            color: #8a9aff;
         }
 
         .reset-button {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #dc3545;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
             color: white;
             border: none;
-            padding: 15px 30px;
+            padding: 16px 32px;
             border-radius: 50px;
             font-size: 1em;
+            font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(220,53,69,0.3);
+            box-shadow: 0 8px 24px rgba(255,107,107,0.4);
             transition: all 0.3s ease;
+            z-index: 1000;
         }
 
         .reset-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 7px 20px rgba(220,53,69,0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(255,107,107,0.5);
         }
 
         .progress-bar {
             width: 100%;
-            height: 30px;
-            background: #f0f0f0;
-            border-radius: 15px;
+            height: 35px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
             overflow: hidden;
-            margin: 20px 0;
+            margin: 25px 0 0 0;
+            position: relative;
         }
 
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            transition: width 0.5s ease;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: bold;
+            font-weight: 700;
+            font-size: 0.95em;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
         }
 
         @media (max-width: 768px) {
@@ -242,14 +322,18 @@
             .mountain-svg {
                 height: 300px;
             }
+
+            .mountain-container {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🏔️ Roadmap 2026 - Ascension vers l'Excellence en IA</h1>
-            <p>Du 28 janvier au 23 octobre 2026 | 2h/jour de travail</p>
+            <h1>🎯 Roadmap IA 2026 - Ascension vers l'Excellence</h1>
+            <p class="subtitle">Du 28 janvier au 23 octobre 2026 | 2h/jour de travail</p>
         </header>
 
         <div class="stats">
@@ -258,11 +342,11 @@
                 <span class="stat-label">Progression totale</span>
             </div>
             <div class="stat-item">
-                <span class="stat-value" id="completedTasks">0/59</span>
+                <span class="stat-value" id="completedTasks">0/68</span>
                 <span class="stat-label">Tâches complétées</span>
             </div>
             <div class="stat-item">
-                <span class="stat-value" id="daysRemaining">245</span>
+                <span class="stat-value" id="daysRemaining">268</span>
                 <span class="stat-label">Jours restants</span>
             </div>
             <div class="stat-item">
@@ -272,72 +356,126 @@
         </div>
 
         <div class="mountain-container">
-            <svg class="mountain-svg" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-                <!-- Ciel -->
+            <svg class="mountain-svg" viewBox="0 0 1000 450" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#E0F6FF;stop-opacity:1" />
+                        <stop offset="0%" style="stop-color:#1a2332;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#2d3e5f;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#4a5f7f;stop-opacity:1" />
                     </linearGradient>
+                    <linearGradient id="mountainGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3d4d6b;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#1f2937;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="snowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+                        <stop offset="100%" style="stop-color:#e0e7ff;stop-opacity:0.7" />
+                    </linearGradient>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
                 </defs>
-                <rect width="800" height="400" fill="url(#skyGradient)"/>
                 
-                <!-- Soleil -->
-                <circle cx="700" cy="80" r="40" fill="#FFD700" opacity="0.8"/>
+                <!-- Ciel étoilé -->
+                <rect width="1000" height="450" fill="url(#skyGradient)"/>
                 
-                <!-- Nuages -->
-                <ellipse cx="150" cy="80" rx="40" ry="20" fill="white" opacity="0.7"/>
-                <ellipse cx="180" cy="85" rx="35" ry="18" fill="white" opacity="0.7"/>
-                <ellipse cx="500" cy="100" rx="50" ry="25" fill="white" opacity="0.6"/>
-                <ellipse cx="540" cy="105" rx="40" ry="20" fill="white" opacity="0.6"/>
+                <!-- Étoiles -->
+                <circle cx="150" cy="50" r="1.5" fill="white" opacity="0.8"/>
+                <circle cx="250" cy="80" r="1" fill="white" opacity="0.6"/>
+                <circle cx="400" cy="45" r="1.2" fill="white" opacity="0.7"/>
+                <circle cx="600" cy="65" r="1" fill="white" opacity="0.5"/>
+                <circle cx="750" cy="55" r="1.3" fill="white" opacity="0.8"/>
+                <circle cx="850" cy="90" r="1" fill="white" opacity="0.6"/>
+                <circle cx="320" cy="110" r="0.8" fill="white" opacity="0.5"/>
+                <circle cx="500" cy="70" r="1.5" fill="white" opacity="0.9"/>
+                <circle cx="680" cy="40" r="1.1" fill="white" opacity="0.7"/>
+                
+                <!-- Lune -->
+                <circle cx="850" cy="100" r="35" fill="#f0f0f0" opacity="0.3"/>
+                <circle cx="845" cy="95" r="30" fill="#ffffff" opacity="0.2"/>
+                
+                <!-- Montagnes arrière-plan -->
+                <path d="M 0 450 L 250 200 L 500 450 Z" fill="#2d3e5f" opacity="0.4"/>
+                <path d="M 400 450 L 700 180 L 1000 450 Z" fill="#2d3e5f" opacity="0.3"/>
                 
                 <!-- Montagne principale -->
-                <path d="M 0 400 L 200 250 L 400 100 L 600 200 L 800 400 Z" fill="#8B7355" stroke="#6B5345" stroke-width="2"/>
-                <path d="M 400 100 L 350 150 L 450 150 Z" fill="white" opacity="0.9"/>
+                <path d="M 0 450 L 250 280 L 500 120 L 750 250 L 1000 450 Z" 
+                      fill="url(#mountainGradient)" stroke="none"/>
                 
-                <!-- Montagne arrière-plan gauche -->
-                <path d="M 0 400 L 150 200 L 300 400 Z" fill="#A0826D" opacity="0.6"/>
+                <!-- Neige au sommet -->
+                <path d="M 500 120 L 450 180 L 550 180 Z" fill="url(#snowGradient)"/>
+                <path d="M 480 160 L 500 120 L 520 160 Z" fill="white" opacity="0.4"/>
                 
-                <!-- Montagne arrière-plan droite -->
-                <path d="M 500 400 L 650 180 L 800 400 Z" fill="#A0826D" opacity="0.6"/>
+                <!-- Sentier de progression (plus subtil) -->
+                <path id="climbPath" 
+                      d="M 80 420 Q 200 350 250 280 Q 350 220 500 120" 
+                      stroke="#667eea" 
+                      stroke-width="3" 
+                      fill="none" 
+                      stroke-dasharray="8,8" 
+                      opacity="0.5"
+                      filter="url(#glow)"/>
                 
-                <!-- Chemin de progression -->
-                <path id="climbPath" d="M 50 380 Q 150 320 200 250 Q 300 180 400 100" 
-                      stroke="#FFD700" stroke-width="4" fill="none" stroke-dasharray="5,5" opacity="0.7"/>
+                <!-- Drapeau au sommet (plus stylisé) -->
+                <line x1="500" y1="120" x2="500" y2="80" stroke="#667eea" stroke-width="3" opacity="0.9"/>
+                <path d="M 500 80 L 540 92 L 500 104 Z" fill="#667eea" opacity="0.9"/>
+                <path d="M 500 86 L 535 96 L 500 98 Z" fill="#764ba2" opacity="0.7"/>
                 
-                <!-- Drapeau au sommet -->
-                <line x1="400" y1="100" x2="400" y2="70" stroke="#333" stroke-width="2"/>
-                <path d="M 400 70 L 430 80 L 400 90 Z" fill="#dc3545"/>
-                
-                <!-- Alpiniste -->
-                <g class="climber" id="climber" transform="translate(50, 380)">
-                    <!-- Chapeau -->
-                    <ellipse cx="0" cy="-20" rx="7" ry="2" fill="#8B4513"/>
-                    <path d="M -5,-20 L -6,-24 L 6,-24 L 5,-20 Z" fill="#8B4513"/>
+                <!-- Alpiniste professionnel -->
+                <g class="climber" id="climber" transform="translate(80, 420)">
+                    <!-- Chapeau moderne -->
+                    <ellipse cx="0" cy="-22" rx="9" ry="2.5" fill="#2C3E50"/>
+                    <path d="M -6,-22 L -7,-27 L 7,-27 L 6,-22 Z" fill="#34495E"/>
+                    <ellipse cx="0" cy="-27" rx="4" ry="1.5" fill="#2C3E50"/>
+                    
                     <!-- Tête -->
-                    <circle cx="0" cy="-15" r="5" fill="#FFD4A3"/>
-                    <!-- Corps -->
-                    <rect x="-3" y="-10" width="6" height="12" fill="#FF6B6B" rx="1"/>
-                    <!-- Bras gauche -->
-                    <line x1="-3" y1="-8" x2="-8" y2="-2" stroke="#FF6B6B" stroke-width="2.5" stroke-linecap="round"/>
-                    <!-- Bras droit tenant le bâton -->
-                    <line x1="3" y1="-6" x2="8" y2="8" stroke="#FF6B6B" stroke-width="2.5" stroke-linecap="round"/>
-                    <!-- Bâton de randonnée -->
-                    <line x1="8" y1="8" x2="10" y2="20" stroke="#8B4513" stroke-width="2" stroke-linecap="round"/>
-                    <circle cx="10" cy="20" r="1.5" fill="#333"/>
-                    <!-- Jambe gauche (en mouvement) -->
-                    <line x1="-2" y1="2" x2="-6" y2="14" stroke="#2C3E50" stroke-width="3" stroke-linecap="round"/>
-                    <line x1="-6" y1="14" x2="-5" y2="20" stroke="#2C3E50" stroke-width="3" stroke-linecap="round"/>
-                    <!-- Chaussure gauche -->
-                    <ellipse cx="-5" cy="20" rx="2" ry="1.5" fill="#333"/>
-                    <!-- Jambe droite -->
-                    <line x1="2" y1="2" x2="4" y2="14" stroke="#2C3E50" stroke-width="3" stroke-linecap="round"/>
-                    <line x1="4" y1="14" x2="5" y2="20" stroke="#2C3E50" stroke-width="3" stroke-linecap="round"/>
-                    <!-- Chaussure droite -->
-                    <ellipse cx="5" cy="20" rx="2" ry="1.5" fill="#333"/>
-                    <!-- Sac à dos -->
-                    <path d="M -4,-8 L -5,-2 L -3,2 L 1,2 L 3,-2 L 2,-8 Z" fill="#764ba2" stroke="#533483" stroke-width="0.5"/>
-                    <rect x="-3" y="-6" width="4" height="3" fill="#9B59B6" rx="0.5"/>
+                    <circle cx="0" cy="-17" r="6" fill="#FFD4A3"/>
+                    
+                    <!-- Lunettes de soleil -->
+                    <rect x="-5" y="-18" width="4" height="2" fill="#2C3E50" opacity="0.8" rx="1"/>
+                    <rect x="1" y="-18" width="4" height="2" fill="#2C3E50" opacity="0.8" rx="1"/>
+                    <line x1="-1" y1="-17" x2="1" y2="-17" stroke="#2C3E50" stroke-width="1"/>
+                    
+                    <!-- Veste technique -->
+                    <path d="M -4,-11 L -4,4 L -2,6 L 2,6 L 4,4 L 4,-11 Z" fill="#E74C3C" stroke="#C0392B" stroke-width="0.5"/>
+                    <line x1="0" y1="-11" x2="0" y2="6" stroke="#C0392B" stroke-width="0.8"/>
+                    
+                    <!-- Bras gauche avec gant -->
+                    <line x1="-4" y1="-9" x2="-10" y2="-4" stroke="#E74C3C" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="-10" cy="-4" r="2" fill="#2C3E50"/>
+                    
+                    <!-- Bras droit avec bâton de trekking -->
+                    <line x1="4" y1="-8" x2="12" y2="2" stroke="#E74C3C" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="12" cy="2" r="2" fill="#2C3E50"/>
+                    
+                    <!-- Bâton de trekking professionnel -->
+                    <line x1="12" y1="2" x2="16" y2="22" stroke="#34495E" stroke-width="2.5" stroke-linecap="round"/>
+                    <line x1="12" y1="2" x2="14" y2="8" stroke="#E67E22" stroke-width="2"/>
+                    <circle cx="16" cy="22" r="2" fill="#95A5A6" stroke="#7F8C8D" stroke-width="0.5"/>
+                    
+                    <!-- Pantalon technique -->
+                    <path d="M -3,4 L -4,6 L -6,18 L -5,24" stroke="#2C3E50" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                    <path d="M 3,4 L 4,6 L 6,18 L 7,24" stroke="#2C3E50" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                    
+                    <!-- Chaussures de randonnée -->
+                    <ellipse cx="-5" cy="24" rx="3" ry="2" fill="#5D4037"/>
+                    <ellipse cx="7" cy="24" rx="3" ry="2" fill="#5D4037"/>
+                    <path d="M -7,24 L -3,24" stroke="#8D6E63" stroke-width="0.5"/>
+                    <path d="M 5,24 L 9,24" stroke="#8D6E63" stroke-width="0.5"/>
+                    
+                    <!-- Sac à dos technique -->
+                    <path d="M -5,-10 L -6,-4 L -5,3 L -2,5 L 0,5 L 2,3 L 5,0 L 6,-6 L 5,-11 Z" 
+                          fill="#7B68EE" 
+                          stroke="#6A5ACD" 
+                          stroke-width="0.5"/>
+                    <rect x="-4" y="-8" width="6" height="4" fill="#9370DB" rx="1"/>
+                    <circle cx="-3" cy="-6" r="0.8" fill="#BDB5D5"/>
+                    <circle cx="2" cy="-6" r="0.8" fill="#BDB5D5"/>
+                    <line x1="-2" y1="-2" x2="1" y2="-2" stroke="#6A5ACD" stroke-width="0.8"/>
                 </g>
             </svg>
             <div class="progress-bar">
@@ -347,7 +485,7 @@
 
         <div class="roadmap-content" id="roadmapContent"></div>
 
-        <button class="reset-button" onclick="resetProgress()">🔄 Réinitialiser la progression</button>
+        <button class="reset-button" onclick="resetProgress()">🔄 Réinitialiser</button>
     </div>
 
     <script>
@@ -355,21 +493,21 @@
             {
                 category: "Programme Meydeyy (100h)",
                 tasks: [
-                    { name: "Démarrage rapide", hours: 5, deadline: "2026-02-02" },
-                    { name: "Ressources", hours: 5, deadline: "2026-02-07" },
-                    { name: "Monétisation & offre", hours: 8, deadline: "2026-02-15" },
-                    { name: "IA & prompt engineering", hours: 10, deadline: "2026-02-25" },
-                    { name: "Automatisation N8N", hours: 12, deadline: "2026-03-09" },
-                    { name: "Airtable", hours: 8, deadline: "2026-03-17" },
-                    { name: "Module débutant", hours: 10, deadline: "2026-03-27" },
-                    { name: "Module intermédiaire", hours: 12, deadline: "2026-04-08" },
-                    { name: "Module avancé", hours: 15, deadline: "2026-04-23" },
-                    { name: "Connexions & intégrations", hours: 8, deadline: "2026-05-01" },
-                    { name: "Agents & systèmes", hours: 10, deadline: "2026-05-11" },
-                    { name: "Replays des lives", hours: 6, deadline: "2026-05-17" },
-                    { name: "Architecture avancée", hours: 8, deadline: "2026-05-25" },
-                    { name: "Offre & positionnement", hours: 6, deadline: "2026-05-31" },
-                    { name: "Croissance & scalabilité", hours: 7, deadline: "2026-06-07" }
+                    { id: "meydeyy_1", name: "Démarrage rapide", hours: 5, deadline: "2026-02-02" },
+                    { id: "meydeyy_2", name: "Ressources", hours: 5, deadline: "2026-02-07" },
+                    { id: "meydeyy_3", name: "Monétisation & offre", hours: 8, deadline: "2026-02-15" },
+                    { id: "meydeyy_4", name: "IA & prompt engineering", hours: 10, deadline: "2026-02-25" },
+                    { id: "meydeyy_5", name: "Automatisation N8N", hours: 12, deadline: "2026-03-09" },
+                    { id: "meydeyy_6", name: "Airtable", hours: 8, deadline: "2026-03-17" },
+                    { id: "meydeyy_7", name: "Module débutant", hours: 10, deadline: "2026-03-27" },
+                    { id: "meydeyy_8", name: "Module intermédiaire", hours: 12, deadline: "2026-04-08" },
+                    { id: "meydeyy_9", name: "Module avancé", hours: 15, deadline: "2026-04-23" },
+                    { id: "meydeyy_10", name: "Connexions & intégrations", hours: 8, deadline: "2026-05-01" },
+                    { id: "meydeyy_11", name: "Agents & systèmes", hours: 10, deadline: "2026-05-11" },
+                    { id: "meydeyy_12", name: "Replays des lives", hours: 6, deadline: "2026-05-17" },
+                    { id: "meydeyy_13", name: "Architecture avancée", hours: 8, deadline: "2026-05-25" },
+                    { id: "meydeyy_14", name: "Offre & positionnement", hours: 6, deadline: "2026-05-31" },
+                    { id: "meydeyy_15", name: "Croissance & scalabilité", hours: 7, deadline: "2026-06-07" }
                 ]
             },
             {
@@ -377,33 +515,33 @@
                 url: "https://www.coursera.org/learn/google-ai-essentials",
                 description: "Certification gratuite sur Coursera (10h de cours)",
                 tasks: [
-                    { name: "📖 Module 1 : Introduction à l'IA (Coursera)", hours: 2, deadline: "2026-06-09", url: "https://www.coursera.org/learn/google-ai-essentials" },
-                    { name: "📖 Module 2 : Maximiser la productivité avec les outils IA", hours: 3, deadline: "2026-06-12", url: "https://www.coursera.org/learn/google-ai-essentials" },
-                    { name: "📖 Module 3 : Découvrir l'art du prompt engineering", hours: 3, deadline: "2026-06-15", url: "https://www.coursera.org/learn/google-ai-essentials" },
-                    { name: "📖 Module 4 : Utiliser l'IA de manière responsable", hours: 2, deadline: "2026-06-17", url: "https://www.coursera.org/learn/google-ai-essentials" },
-                    { name: "✏️ Quiz et exercices pratiques Module 1-2", hours: 3, deadline: "2026-06-20" },
-                    { name: "✏️ Quiz et exercices pratiques Module 3-4", hours: 3, deadline: "2026-06-23" },
-                    { name: "💼 Projet final : Créer un plan d'utilisation IA", hours: 4, deadline: "2026-06-27" },
-                    { name: "📝 Révisions et préparation à l'évaluation", hours: 2, deadline: "2026-06-29" },
-                    { name: "🎓 Évaluation finale Google AI Essentials", hours: 2, deadline: "2026-06-30" }
+                    { id: "google_1", name: "📖 Module 1 : Introduction à l'IA", hours: 2, deadline: "2026-06-09", url: "https://www.coursera.org/learn/google-ai-essentials" },
+                    { id: "google_2", name: "📖 Module 2 : Maximiser la productivité avec l'IA", hours: 3, deadline: "2026-06-12", url: "https://www.coursera.org/learn/google-ai-essentials" },
+                    { id: "google_3", name: "📖 Module 3 : L'art du prompt engineering", hours: 3, deadline: "2026-06-15", url: "https://www.coursera.org/learn/google-ai-essentials" },
+                    { id: "google_4", name: "📖 Module 4 : Utiliser l'IA de manière responsable", hours: 2, deadline: "2026-06-17", url: "https://www.coursera.org/learn/google-ai-essentials" },
+                    { id: "google_5", name: "✏️ Quiz et exercices Module 1-2 (inclus Coursera)", hours: 3, deadline: "2026-06-20" },
+                    { id: "google_6", name: "✏️ Quiz et exercices Module 3-4 (inclus Coursera)", hours: 3, deadline: "2026-06-23" },
+                    { id: "google_7", name: "💼 Projet final : Plan d'utilisation IA", hours: 4, deadline: "2026-06-27" },
+                    { id: "google_8", name: "📝 Révisions et préparation évaluation", hours: 2, deadline: "2026-06-29" },
+                    { id: "google_9", name: "🎓 Évaluation finale Google AI Essentials", hours: 2, deadline: "2026-06-30" }
                 ]
             },
             {
                 category: "Azure AI Fundamentals (AI-900) 🔷",
                 url: "https://learn.microsoft.com/fr-fr/credentials/certifications/azure-ai-fundamentals/",
-                description: "Certification Microsoft officielle",
+                description: "Certification Microsoft officielle (Examen: 99€)",
                 tasks: [
-                    { name: "📖 Décrire les charges de travail et considérations IA", hours: 4, deadline: "2026-07-04", url: "https://learn.microsoft.com/fr-fr/training/paths/get-started-with-artificial-intelligence-on-azure/" },
-                    { name: "📖 Principes fondamentaux du machine learning", hours: 5, deadline: "2026-07-09", url: "https://learn.microsoft.com/fr-fr/training/paths/create-no-code-predictive-models-azure-machine-learning/" },
-                    { name: "📖 Computer Vision (Vision par ordinateur)", hours: 6, deadline: "2026-07-15", url: "https://learn.microsoft.com/fr-fr/training/paths/explore-computer-vision-microsoft-azure/" },
-                    { name: "📖 Natural Language Processing (NLP)", hours: 6, deadline: "2026-07-21", url: "https://learn.microsoft.com/fr-fr/training/paths/explore-natural-language-processing/" },
-                    { name: "📖 Intelligence décisionnelle & Mining de connaissances", hours: 4, deadline: "2026-07-25", url: "https://learn.microsoft.com/fr-fr/training/paths/document-intelligence-knowledge-mining/" },
-                    { name: "📖 IA générative sur Azure", hours: 4, deadline: "2026-07-29", url: "https://learn.microsoft.com/fr-fr/training/paths/introduction-generative-ai/" },
-                    { name: "✏️ Labs pratiques : Computer Vision & Custom Vision", hours: 4, deadline: "2026-08-02" },
-                    { name: "✏️ Labs pratiques : Language Service & Bot Service", hours: 4, deadline: "2026-08-06" },
-                    { name: "✏️ Tests d'entraînement officiels Microsoft", hours: 3, deadline: "2026-08-09", url: "https://learn.microsoft.com/fr-fr/credentials/certifications/azure-ai-fundamentals/practice/assessment" },
-                    { name: "📝 Révision complète des modules", hours: 3, deadline: "2026-08-12" },
-                    { name: "🎓 EXAMEN AI-900 (inscription 99€)", hours: 2, deadline: "2026-08-15", url: "https://learn.microsoft.com/fr-fr/credentials/certifications/exams/ai-900/" }
+                    { id: "azure_1", name: "📖 Charges de travail et considérations IA", hours: 4, deadline: "2026-07-04", url: "https://learn.microsoft.com/fr-fr/training/paths/get-started-with-artificial-intelligence-on-azure/" },
+                    { id: "azure_2", name: "📖 Principes fondamentaux du ML", hours: 5, deadline: "2026-07-09", url: "https://learn.microsoft.com/fr-fr/training/paths/create-no-code-predictive-models-azure-machine-learning/" },
+                    { id: "azure_3", name: "📖 Computer Vision", hours: 6, deadline: "2026-07-15", url: "https://learn.microsoft.com/fr-fr/training/paths/explore-computer-vision-microsoft-azure/" },
+                    { id: "azure_4", name: "📖 Natural Language Processing", hours: 6, deadline: "2026-07-21", url: "https://learn.microsoft.com/fr-fr/training/paths/explore-natural-language-processing/" },
+                    { id: "azure_5", name: "📖 Intelligence décisionnelle & Mining", hours: 4, deadline: "2026-07-25", url: "https://learn.microsoft.com/fr-fr/training/paths/document-intelligence-knowledge-mining/" },
+                    { id: "azure_6", name: "📖 IA générative sur Azure", hours: 4, deadline: "2026-07-29", url: "https://learn.microsoft.com/fr-fr/training/paths/introduction-generative-ai/" },
+                    { id: "azure_7", name: "✏️ Labs : Computer Vision & Custom Vision (inclus MS Learn)", hours: 4, deadline: "2026-08-02" },
+                    { id: "azure_8", name: "✏️ Labs : Language Service & Bot Service (inclus MS Learn)", hours: 4, deadline: "2026-08-06" },
+                    { id: "azure_9", name: "✏️ Tests pratiques officiels Microsoft", hours: 3, deadline: "2026-08-09", url: "https://learn.microsoft.com/fr-fr/credentials/certifications/azure-ai-fundamentals/practice/assessment" },
+                    { id: "azure_10", name: "📝 Révision complète des modules", hours: 3, deadline: "2026-08-12" },
+                    { id: "azure_11", name: "🎓 EXAMEN AI-900 (inscription 99€)", hours: 2, deadline: "2026-08-15", url: "https://learn.microsoft.com/fr-fr/credentials/certifications/exams/ai-900/" }
                 ]
             },
             {
@@ -411,18 +549,18 @@
                 url: "https://www.coursera.org/professional-certificates/ai-engineer",
                 description: "Certificat professionnel IBM sur Coursera (6 cours)",
                 tasks: [
-                    { name: "📖 Cours 1 : Machine Learning with Python", hours: 8, deadline: "2026-08-23", url: "https://www.coursera.org/learn/machine-learning-with-python" },
-                    { name: "✏️ Exercices & Labs Python ML (Regression, Classification)", hours: 6, deadline: "2026-08-29" },
-                    { name: "📖 Cours 2 : Introduction to Deep Learning & Neural Networks with Keras", hours: 8, deadline: "2026-09-05", url: "https://www.coursera.org/learn/introduction-to-deep-learning-with-keras" },
-                    { name: "✏️ Labs pratiques : Keras & TensorFlow basics", hours: 5, deadline: "2026-09-10" },
-                    { name: "📖 Cours 3 : Introduction to Computer Vision and Image Processing", hours: 6, deadline: "2026-09-16", url: "https://www.coursera.org/learn/introduction-computer-vision-watson-opencv" },
-                    { name: "📖 Cours 4 : Deep Neural Networks with PyTorch", hours: 8, deadline: "2026-09-23", url: "https://www.coursera.org/learn/deep-neural-networks-with-pytorch" },
-                    { name: "✏️ Labs avancés : CNN, RNN, Transfer Learning", hours: 6, deadline: "2026-09-28" },
-                    { name: "📖 Cours 5 : Building Deep Learning Models with TensorFlow", hours: 4, deadline: "2026-10-02", url: "https://www.coursera.org/learn/building-deep-learning-models-with-tensorflow" },
-                    { name: "📖 Cours 6 : AI Capstone Project with Deep Learning", hours: 4, deadline: "2026-10-06", url: "https://www.coursera.org/learn/ai-deep-learning-capstone" },
-                    { name: "💼 PROJET FINAL : Développer une application Deep Learning complète", hours: 12, deadline: "2026-10-18" },
-                    { name: "📝 Révision et documentation du projet", hours: 3, deadline: "2026-10-21" },
-                    { name: "🎓 Soumission finale et obtention du certificat", hours: 2, deadline: "2026-10-23" }
+                    { id: "ibm_1", name: "📖 Cours 1 : Machine Learning with Python", hours: 8, deadline: "2026-08-23", url: "https://www.coursera.org/learn/machine-learning-with-python" },
+                    { id: "ibm_2", name: "✏️ Labs Python ML : Regression & Classification (inclus)", hours: 6, deadline: "2026-08-29" },
+                    { id: "ibm_3", name: "📖 Cours 2 : Deep Learning & Neural Networks with Keras", hours: 8, deadline: "2026-09-05", url: "https://www.coursera.org/learn/introduction-to-deep-learning-with-keras" },
+                    { id: "ibm_4", name: "✏️ Labs pratiques : Keras & TensorFlow basics (inclus)", hours: 5, deadline: "2026-09-10" },
+                    { id: "ibm_5", name: "📖 Cours 3 : Computer Vision and Image Processing", hours: 6, deadline: "2026-09-16", url: "https://www.coursera.org/learn/introduction-computer-vision-watson-opencv" },
+                    { id: "ibm_6", name: "📖 Cours 4 : Deep Neural Networks with PyTorch", hours: 8, deadline: "2026-09-23", url: "https://www.coursera.org/learn/deep-neural-networks-with-pytorch" },
+                    { id: "ibm_7", name: "✏️ Labs avancés : CNN, RNN, Transfer Learning (inclus)", hours: 6, deadline: "2026-09-28" },
+                    { id: "ibm_8", name: "📖 Cours 5 : Building DL Models with TensorFlow", hours: 4, deadline: "2026-10-02", url: "https://www.coursera.org/learn/building-deep-learning-models-with-tensorflow" },
+                    { id: "ibm_9", name: "📖 Cours 6 : AI Capstone Project with Deep Learning", hours: 4, deadline: "2026-10-06", url: "https://www.coursera.org/learn/ai-deep-learning-capstone" },
+                    { id: "ibm_10", name: "💼 PROJET FINAL : Application Deep Learning complète", hours: 12, deadline: "2026-10-18" },
+                    { id: "ibm_11", name: "📝 Révision et documentation du projet", hours: 3, deadline: "2026-10-21" },
+                    { id: "ibm_12", name: "🎓 Soumission finale et obtention du certificat", hours: 2, deadline: "2026-10-23" }
                 ]
             }
         ];
@@ -444,7 +582,7 @@
                 category.tasks.forEach(task => {
                     totalTasks++;
                     totalHours += task.hours;
-                    if (progress[task.name]) {
+                    if (progress[task.id]) {
                         completedTasks++;
                     }
                 });
@@ -453,7 +591,7 @@
             const percentage = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
             const hoursInvested = roadmapData.reduce((sum, cat) => {
                 return sum + cat.tasks.reduce((catSum, task) => {
-                    return catSum + (progress[task.name] ? task.hours : 0);
+                    return catSum + (progress[task.id] ? task.hours : 0);
                 }, 0);
             }, 0);
 
@@ -493,32 +631,33 @@
                 const categoryDiv = document.createElement('div');
                 categoryDiv.className = 'category';
 
-                const completed = category.tasks.filter(t => progress[t.name]).length;
+                const completed = category.tasks.filter(t => progress[t.id]).length;
                 const total = category.tasks.length;
                 const categoryProgress = Math.round((completed / total) * 100);
 
                 let headerHTML = `
                     <div class="category-header">
                         <div class="category-title">${category.category}</div>
-                        <div class="category-progress">${completed}/${total} (${categoryProgress}%)</div>
-                    </div>
+                        <div class="category-progress">${completed}/${total} tâches (${categoryProgress}%)</div>
                 `;
                 
-                if (category.url || category.description) {
-                    headerHTML += '<div style="margin-bottom: 15px;">';
+                if (category.description || category.url) {
+                    headerHTML += '<div class="category-info">';
                     if (category.description) {
-                        headerHTML += `<div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">${category.description}</div>`;
+                        headerHTML += `${category.description}`;
                     }
                     if (category.url) {
-                        headerHTML += `<a href="${category.url}" target="_blank" style="font-size: 0.85em; color: #667eea; text-decoration: none;">🔗 Lien officiel</a>`;
+                        headerHTML += `<br><a href="${category.url}" target="_blank" class="category-link">🔗 Accéder à la plateforme</a>`;
                     }
                     headerHTML += '</div>';
                 }
+                
+                headerHTML += '</div>';
 
                 categoryDiv.innerHTML = headerHTML;
 
                 category.tasks.forEach(task => {
-                    const isCompleted = progress[task.name] || false;
+                    const isCompleted = progress[task.id] || false;
                     const isOverdue = calculateDeadlineStatus(task.deadline) && !isCompleted;
                     
                     const taskDiv = document.createElement('div');
@@ -533,14 +672,14 @@
 
                     let taskHTML = `
                         <input type="checkbox" ${isCompleted ? 'checked' : ''} 
-                               onchange="toggleTask('${task.name}')">
+                               onchange="toggleTask('${task.id}')">
                         <div class="task-content">
                             <div class="task-name">${task.name} (${task.hours}h)</div>
                             <div class="task-deadline">📅 ${formattedDeadline}</div>
                     `;
                     
                     if (task.url) {
-                        taskHTML += `<a href="${task.url}" target="_blank" style="font-size: 0.8em; color: #667eea; text-decoration: none; display: inline-block; margin-top: 3px;">→ Accéder au cours</a>`;
+                        taskHTML += `<a href="${task.url}" target="_blank" class="task-link">→ Accéder au cours</a>`;
                     }
                     
                     taskHTML += '</div>';
@@ -556,10 +695,10 @@
             updateStats();
         }
 
-        function toggleTask(taskName) {
-            progress[taskName] = !progress[taskName];
-            if (!progress[taskName]) {
-                delete progress[taskName];
+        function toggleTask(taskId) {
+            progress[taskId] = !progress[taskId];
+            if (!progress[taskId]) {
+                delete progress[taskId];
             }
             localStorage.setItem('roadmapProgress', JSON.stringify(progress));
             renderRoadmap();
