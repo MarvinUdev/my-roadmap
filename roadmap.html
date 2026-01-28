@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Roadmap IA 2026 - Ascension vers l'Excellence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 100%);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(72, 219, 251, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 159, 243, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .stats {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .mountain-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mountain-svg {
+            width: 100%;
+            height: 400px;
+        }
+
+        .climber {
+            transition: all 1s ease-in-out;
+        }
+
+        .roadmap-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .category {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .category-title {
+            font-size: 1.3em;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .category-progress {
+            font-size: 0.9em;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .task {
+            margin-bottom: 12px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .task:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .task.completed {
+            background: #d4edda;
+            opacity: 0.8;
+        }
+
+        .task input[type="checkbox"] {
+            margin-top: 3px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .task-content {
+            flex-grow: 1;
+        }
+
+        .task-name {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .task.completed .task-name {
+            text-decoration: line-through;
+            color: #666;
+        }
+
+        .task-deadline {
+            font-size: 0.85em;
+            color: #666;
+        }
+
+        .task.overdue .task-deadline {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        .reset-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(220,53,69,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .reset-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(220,53,69,0.4);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #f0f0f0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .roadmap-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .mountain-svg {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏔️ Roadmap 2026 - Ascension vers l'Excellence en IA</h1>
+            <p>Du 28 janvier au 23 octobre 2026 | 2h/jour de travail</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-value" id="totalProgress">0%</span>
+                <span class="stat-label">Progression totale</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value" id="completedTasks">0/59</span>
+                <span class="stat-label">Tâches complétées</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value" id="daysRemaining">245</span>
+                <span class="stat-label">Jours restants</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value" id="hoursInvested">0h</span>
+                <span class="stat-label">Heures investies</span>
+            </div>
+        </div>
+
+        <div class="mountain-container">
+            <svg class="mountain-svg" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                <!-- Ciel -->
+                <defs>
+                    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#E0F6FF;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <rect width="800" height="400" fill="url(#skyGradient)"/>
+                
+                <!-- Soleil -->
+                <circle cx="700" cy="80" r="40" fill="#FFD700" opacity="0.8"/>
+                
+                <!-- Nuages -->
+                <ellipse cx="150" cy="80" rx="40" ry="20" fill="white" opacity="0.7"/>
+                <ellipse cx="180" cy="85" rx="35" ry="18" fill="white" opacity="0.7"/>
+                <ellipse cx="500" cy="100" rx="50" ry="25" fill="white" opacity="0.6"/>
+                <ellipse cx="540" cy="105" rx="40" ry="20" fill="white" opacity="0.6"/>
+                
+                <!-- Montagne principale -->
+                <path d="M 0 400 L 200 250 L 400 100 L 600 200 L 800 400 Z" fill="#8B7355" stroke="#6B5345" stroke-width="2"/>
+                <path d="M 400 100 L 350 150 L 450 150 Z" fill="white" opacity="0.9"/>
+                
+                <!-- Montagne arrière-plan gauche -->
+                <path d="M 0 400 L 150 200 L 300 400 Z" fill="#A0826D" opacity="0.6"/>
+                
+                <!-- Montagne arrière-plan droite -->
+                <path d="M 500 400 L 650 180 L 800 400 Z" fill="#A0826D" opacity="0.6"/>
+                
+                <!-- Chemin de progression -->
+                <path id="climbPath" d="M 50 380 Q 150 320 200 250 Q 300 180 400 100" 
+                      stroke="#FFD700" stroke-width="4" fill="none" stroke-dasharray="5,5" opacity="0.7"/>
+                
+                <!-- Drapeau au sommet -->
+                <line x1="400" y1="100" x2="400" y2="70" stroke="#333" stroke-width="2"/>
+                <path d="M 400 70 L 430 80 L 400 90 Z" fill="#dc3545"/>
+                
+                <!-- Alpiniste -->
+                <g class="climber" id="climber" transform="translate(50, 380)">
+                    <!-- Chapeau -->
+                    <ellipse cx="0" cy="-20" rx="7" ry="2" fill="#8B4513"/>
+                    <path d="M -5,-20 L -6,-24 L 6,-24 L 5,-20 Z" fill="#8B4513"/>
+                    <!-- Tête -->
+                    <circle cx="0" cy="-15" r="5" fill="#FFD4A3"/>
+                    <!-- Corps -->
+                    <rect x="-3" y="-10" width="6" height="12" fill="#FF6B6B" rx="1"/>
+                    <!-- Bras gauche -->
+                    <line x1="-3" y1="-8" x2="-8" y2="-2" stroke="#FF6B6B" stroke-width="2.5" stroke-linecap="round"/>
+                    <!-- Bras droit tenant le bâton -->
+                    <line x1="3" y1="-6" x2="8" y2="8" stroke="#FF6B6B" stroke-width="2.5" stroke-linecap="round"/>
+                    <!-- Bâton de randonnée -->
+                    <line x1="8" y1="8" x2="10" y2="20" stroke="#8B4513" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="10" cy="20" r="1.5" fill="#333"/>
+                    <!-- Jambe gauche (en mouvement) -->
+                    <line x1="-2" y1="2" x2="-6" y2="14" stroke="#2C3E50" stroke-width="3" stroke-linecap="round"/>
+                    <line x1="-6" y1="14" x2="-5" y2="20" stroke="#2C3E50" stroke-width="3" stroke-linecap="round"/>
+                    <!-- Chaussure gauche -->
+                    <ellipse cx="-5" cy="20" rx="2" ry="1.5" fill="#333"/>
+                    <!-- Jambe droite -->
+                    <line x1="2" y1="2" x2="4" y2="14" stroke="#2C3E50" stroke-width="3" stroke-linecap="round"/>
+                    <line x1="4" y1="14" x2="5" y2="20" stroke="#2C3E50" stroke-width="3" stroke-linecap="round"/>
+                    <!-- Chaussure droite -->
+                    <ellipse cx="5" cy="20" rx="2" ry="1.5" fill="#333"/>
+                    <!-- Sac à dos -->
+                    <path d="M -4,-8 L -5,-2 L -3,2 L 1,2 L 3,-2 L 2,-8 Z" fill="#764ba2" stroke="#533483" stroke-width="0.5"/>
+                    <rect x="-3" y="-6" width="4" height="3" fill="#9B59B6" rx="0.5"/>
+                </g>
+            </svg>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar">0%</div>
+            </div>
+        </div>
+
+        <div class="roadmap-content" id="roadmapContent"></div>
+
+        <button class="reset-button" onclick="resetProgress()">🔄 Réinitialiser la progression</button>
+    </div>
+
+    <script>
+        const roadmapData = [
+            {
+                category: "Programme Meydeyy (100h)",
+                tasks: [
+                    { name: "Démarrage rapide", hours: 5, deadline: "2026-02-02" },
+                    { name: "Ressources", hours: 5, deadline: "2026-02-07" },
+                    { name: "Monétisation & offre", hours: 8, deadline: "2026-02-15" },
+                    { name: "IA & prompt engineering", hours: 10, deadline: "2026-02-25" },
+                    { name: "Automatisation N8N", hours: 12, deadline: "2026-03-09" },
+                    { name: "Airtable", hours: 8, deadline: "2026-03-17" },
+                    { name: "Module débutant", hours: 10, deadline: "2026-03-27" },
+                    { name: "Module intermédiaire", hours: 12, deadline: "2026-04-08" },
+                    { name: "Module avancé", hours: 15, deadline: "2026-04-23" },
+                    { name: "Connexions & intégrations", hours: 8, deadline: "2026-05-01" },
+                    { name: "Agents & systèmes", hours: 10, deadline: "2026-05-11" },
+                    { name: "Replays des lives", hours: 6, deadline: "2026-05-17" },
+                    { name: "Architecture avancée", hours: 8, deadline: "2026-05-25" },
+                    { name: "Offre & positionnement", hours: 6, deadline: "2026-05-31" },
+                    { name: "Croissance & scalabilité", hours: 7, deadline: "2026-06-07" }
+                ]
+            },
+            {
+                category: "Google AI Essentials 📘",
+                url: "https://www.coursera.org/learn/google-ai-essentials",
+                description: "Certification gratuite sur Coursera (10h de cours)",
+                tasks: [
+                    { name: "📖 Module 1 : Introduction à l'IA (Coursera)", hours: 2, deadline: "2026-06-09", url: "https://www.coursera.org/learn/google-ai-essentials" },
+                    { name: "📖 Module 2 : Maximiser la productivité avec les outils IA", hours: 3, deadline: "2026-06-12", url: "https://www.coursera.org/learn/google-ai-essentials" },
+                    { name: "📖 Module 3 : Découvrir l'art du prompt engineering", hours: 3, deadline: "2026-06-15", url: "https://www.coursera.org/learn/google-ai-essentials" },
+                    { name: "📖 Module 4 : Utiliser l'IA de manière responsable", hours: 2, deadline: "2026-06-17", url: "https://www.coursera.org/learn/google-ai-essentials" },
+                    { name: "✏️ Quiz et exercices pratiques Module 1-2", hours: 3, deadline: "2026-06-20" },
+                    { name: "✏️ Quiz et exercices pratiques Module 3-4", hours: 3, deadline: "2026-06-23" },
+                    { name: "💼 Projet final : Créer un plan d'utilisation IA", hours: 4, deadline: "2026-06-27" },
+                    { name: "📝 Révisions et préparation à l'évaluation", hours: 2, deadline: "2026-06-29" },
+                    { name: "🎓 Évaluation finale Google AI Essentials", hours: 2, deadline: "2026-06-30" }
+                ]
+            },
+            {
+                category: "Azure AI Fundamentals (AI-900) 🔷",
+                url: "https://learn.microsoft.com/fr-fr/credentials/certifications/azure-ai-fundamentals/",
+                description: "Certification Microsoft officielle",
+                tasks: [
+                    { name: "📖 Décrire les charges de travail et considérations IA", hours: 4, deadline: "2026-07-04", url: "https://learn.microsoft.com/fr-fr/training/paths/get-started-with-artificial-intelligence-on-azure/" },
+                    { name: "📖 Principes fondamentaux du machine learning", hours: 5, deadline: "2026-07-09", url: "https://learn.microsoft.com/fr-fr/training/paths/create-no-code-predictive-models-azure-machine-learning/" },
+                    { name: "📖 Computer Vision (Vision par ordinateur)", hours: 6, deadline: "2026-07-15", url: "https://learn.microsoft.com/fr-fr/training/paths/explore-computer-vision-microsoft-azure/" },
+                    { name: "📖 Natural Language Processing (NLP)", hours: 6, deadline: "2026-07-21", url: "https://learn.microsoft.com/fr-fr/training/paths/explore-natural-language-processing/" },
+                    { name: "📖 Intelligence décisionnelle & Mining de connaissances", hours: 4, deadline: "2026-07-25", url: "https://learn.microsoft.com/fr-fr/training/paths/document-intelligence-knowledge-mining/" },
+                    { name: "📖 IA générative sur Azure", hours: 4, deadline: "2026-07-29", url: "https://learn.microsoft.com/fr-fr/training/paths/introduction-generative-ai/" },
+                    { name: "✏️ Labs pratiques : Computer Vision & Custom Vision", hours: 4, deadline: "2026-08-02" },
+                    { name: "✏️ Labs pratiques : Language Service & Bot Service", hours: 4, deadline: "2026-08-06" },
+                    { name: "✏️ Tests d'entraînement officiels Microsoft", hours: 3, deadline: "2026-08-09", url: "https://learn.microsoft.com/fr-fr/credentials/certifications/azure-ai-fundamentals/practice/assessment" },
+                    { name: "📝 Révision complète des modules", hours: 3, deadline: "2026-08-12" },
+                    { name: "🎓 EXAMEN AI-900 (inscription 99€)", hours: 2, deadline: "2026-08-15", url: "https://learn.microsoft.com/fr-fr/credentials/certifications/exams/ai-900/" }
+                ]
+            },
+            {
+                category: "IBM AI Engineering Professional Certificate 🎯",
+                url: "https://www.coursera.org/professional-certificates/ai-engineer",
+                description: "Certificat professionnel IBM sur Coursera (6 cours)",
+                tasks: [
+                    { name: "📖 Cours 1 : Machine Learning with Python", hours: 8, deadline: "2026-08-23", url: "https://www.coursera.org/learn/machine-learning-with-python" },
+                    { name: "✏️ Exercices & Labs Python ML (Regression, Classification)", hours: 6, deadline: "2026-08-29" },
+                    { name: "📖 Cours 2 : Introduction to Deep Learning & Neural Networks with Keras", hours: 8, deadline: "2026-09-05", url: "https://www.coursera.org/learn/introduction-to-deep-learning-with-keras" },
+                    { name: "✏️ Labs pratiques : Keras & TensorFlow basics", hours: 5, deadline: "2026-09-10" },
+                    { name: "📖 Cours 3 : Introduction to Computer Vision and Image Processing", hours: 6, deadline: "2026-09-16", url: "https://www.coursera.org/learn/introduction-computer-vision-watson-opencv" },
+                    { name: "📖 Cours 4 : Deep Neural Networks with PyTorch", hours: 8, deadline: "2026-09-23", url: "https://www.coursera.org/learn/deep-neural-networks-with-pytorch" },
+                    { name: "✏️ Labs avancés : CNN, RNN, Transfer Learning", hours: 6, deadline: "2026-09-28" },
+                    { name: "📖 Cours 5 : Building Deep Learning Models with TensorFlow", hours: 4, deadline: "2026-10-02", url: "https://www.coursera.org/learn/building-deep-learning-models-with-tensorflow" },
+                    { name: "📖 Cours 6 : AI Capstone Project with Deep Learning", hours: 4, deadline: "2026-10-06", url: "https://www.coursera.org/learn/ai-deep-learning-capstone" },
+                    { name: "💼 PROJET FINAL : Développer une application Deep Learning complète", hours: 12, deadline: "2026-10-18" },
+                    { name: "📝 Révision et documentation du projet", hours: 3, deadline: "2026-10-21" },
+                    { name: "🎓 Soumission finale et obtention du certificat", hours: 2, deadline: "2026-10-23" }
+                ]
+            }
+        ];
+
+        let progress = JSON.parse(localStorage.getItem('roadmapProgress')) || {};
+
+        function calculateDeadlineStatus(deadline) {
+            const today = new Date('2026-01-28');
+            const deadlineDate = new Date(deadline);
+            return deadlineDate < today;
+        }
+
+        function calculateProgress() {
+            let totalTasks = 0;
+            let completedTasks = 0;
+            let totalHours = 0;
+
+            roadmapData.forEach(category => {
+                category.tasks.forEach(task => {
+                    totalTasks++;
+                    totalHours += task.hours;
+                    if (progress[task.name]) {
+                        completedTasks++;
+                    }
+                });
+            });
+
+            const percentage = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
+            const hoursInvested = roadmapData.reduce((sum, cat) => {
+                return sum + cat.tasks.reduce((catSum, task) => {
+                    return catSum + (progress[task.name] ? task.hours : 0);
+                }, 0);
+            }, 0);
+
+            return { percentage, completedTasks, totalTasks, hoursInvested };
+        }
+
+        function updateStats() {
+            const stats = calculateProgress();
+            document.getElementById('totalProgress').textContent = stats.percentage + '%';
+            document.getElementById('completedTasks').textContent = `${stats.completedTasks}/${stats.totalTasks}`;
+            document.getElementById('hoursInvested').textContent = stats.hoursInvested + 'h';
+            document.getElementById('progressBar').style.width = stats.percentage + '%';
+            document.getElementById('progressBar').textContent = stats.percentage + '%';
+
+            const today = new Date('2026-01-28');
+            const endDate = new Date('2026-10-23');
+            const daysRemaining = Math.ceil((endDate - today) / (1000 * 60 * 60 * 24));
+            document.getElementById('daysRemaining').textContent = daysRemaining;
+
+            updateClimberPosition(stats.percentage);
+        }
+
+        function updateClimberPosition(percentage) {
+            const path = document.getElementById('climbPath');
+            const climber = document.getElementById('climber');
+            const pathLength = path.getTotalLength();
+            const point = path.getPointAtLength((percentage / 100) * pathLength);
+            
+            climber.setAttribute('transform', `translate(${point.x}, ${point.y})`);
+        }
+
+        function renderRoadmap() {
+            const container = document.getElementById('roadmapContent');
+            container.innerHTML = '';
+
+            roadmapData.forEach(category => {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'category';
+
+                const completed = category.tasks.filter(t => progress[t.name]).length;
+                const total = category.tasks.length;
+                const categoryProgress = Math.round((completed / total) * 100);
+
+                let headerHTML = `
+                    <div class="category-header">
+                        <div class="category-title">${category.category}</div>
+                        <div class="category-progress">${completed}/${total} (${categoryProgress}%)</div>
+                    </div>
+                `;
+                
+                if (category.url || category.description) {
+                    headerHTML += '<div style="margin-bottom: 15px;">';
+                    if (category.description) {
+                        headerHTML += `<div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">${category.description}</div>`;
+                    }
+                    if (category.url) {
+                        headerHTML += `<a href="${category.url}" target="_blank" style="font-size: 0.85em; color: #667eea; text-decoration: none;">🔗 Lien officiel</a>`;
+                    }
+                    headerHTML += '</div>';
+                }
+
+                categoryDiv.innerHTML = headerHTML;
+
+                category.tasks.forEach(task => {
+                    const isCompleted = progress[task.name] || false;
+                    const isOverdue = calculateDeadlineStatus(task.deadline) && !isCompleted;
+                    
+                    const taskDiv = document.createElement('div');
+                    taskDiv.className = `task ${isCompleted ? 'completed' : ''} ${isOverdue ? 'overdue' : ''}`;
+                    
+                    const deadline = new Date(task.deadline);
+                    const formattedDeadline = deadline.toLocaleDateString('fr-FR', { 
+                        day: '2-digit', 
+                        month: 'long', 
+                        year: 'numeric' 
+                    });
+
+                    let taskHTML = `
+                        <input type="checkbox" ${isCompleted ? 'checked' : ''} 
+                               onchange="toggleTask('${task.name}')">
+                        <div class="task-content">
+                            <div class="task-name">${task.name} (${task.hours}h)</div>
+                            <div class="task-deadline">📅 ${formattedDeadline}</div>
+                    `;
+                    
+                    if (task.url) {
+                        taskHTML += `<a href="${task.url}" target="_blank" style="font-size: 0.8em; color: #667eea; text-decoration: none; display: inline-block; margin-top: 3px;">→ Accéder au cours</a>`;
+                    }
+                    
+                    taskHTML += '</div>';
+
+                    taskDiv.innerHTML = taskHTML;
+
+                    categoryDiv.appendChild(taskDiv);
+                });
+
+                container.appendChild(categoryDiv);
+            });
+
+            updateStats();
+        }
+
+        function toggleTask(taskName) {
+            progress[taskName] = !progress[taskName];
+            if (!progress[taskName]) {
+                delete progress[taskName];
+            }
+            localStorage.setItem('roadmapProgress', JSON.stringify(progress));
+            renderRoadmap();
+        }
+
+        function resetProgress() {
+            if (confirm('Êtes-vous sûr de vouloir réinitialiser toute votre progression ?')) {
+                progress = {};
+                localStorage.removeItem('roadmapProgress');
+                renderRoadmap();
+            }
+        }
+
+        renderRoadmap();
+    </script>
+</body>
+</html>
